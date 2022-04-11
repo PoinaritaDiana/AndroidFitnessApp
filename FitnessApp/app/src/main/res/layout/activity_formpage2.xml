@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".FormPage2"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="10dp"
+    android:layout_marginTop="80dp">
+
+    <TextView
+        android:text="Which one is your goal?"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/radioOptions"
+        android:gravity="center">
+        <RadioButton android:id="@+id/lose_weight"
+            android:width="200dp"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lose Weight"
+            android:onClick="onRadioButtonClicked"/>
+
+        <RadioButton android:id="@+id/maintain_weight"
+            android:width="200dp"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Maintain Weight"
+            android:onClick="onRadioButtonClicked"/>
+
+        <RadioButton android:id="@+id/gain_muscle"
+            android:width="200dp"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gain muscle"
+            android:onClick="onRadioButtonClicked"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/submitForm2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="SUBMIT"/>
+
+</LinearLayout>
+</ScrollView>

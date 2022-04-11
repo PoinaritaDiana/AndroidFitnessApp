@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    tools:context=".DayPlanActivity"
+    android:orientation="vertical"
+    android:background="@color/bluecalendar">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="30dp">
+        <ImageView
+            android:id="@+id/day"
+            android:layout_width="140dp"
+            android:layout_height="150dp"
+            android:src="@drawable/d1">
+        </ImageView>
+
+        <CheckBox
+            android:id="@+id/done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:buttonTint="@color/redcalendar"
+            android:text="Mark as Done"
+            android:textStyle="bold"
+            android:textSize="19sp">
+
+        </CheckBox>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:src="@drawable/workouticon">
+
+            </ImageView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Workout"
+                android:textSize="25sp"
+                android:textStyle="bold">
+
+            </TextView>
+            <Button
+                android:id="@+id/shareWorkout"
+                android:layout_marginLeft="10sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Share"
+                android:backgroundTint="@color/startblue">
+
+            </Button>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/workout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Link to Workout"
+            android:textSize="15sp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/startblue"
+            android:textStyle="bold"
+            android:paddingLeft="25dp">
+
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:src="@drawable/mealicon">
+
+            </ImageView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Meal Plan"
+                android:textSize="25sp"
+                android:textStyle="bold">
+
+            </TextView>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/mealPlan"
+            android:layout_width="300dp"
+            android:layout_height="350dp"
+            android:src="@drawable/g10"
+            android:layout_gravity="center">
+        </ImageView>
+    </LinearLayout>
+
+</LinearLayout>
+</ScrollView>
