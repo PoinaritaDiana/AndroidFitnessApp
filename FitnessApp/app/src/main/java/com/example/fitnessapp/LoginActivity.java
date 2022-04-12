@@ -14,12 +14,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
@@ -39,6 +37,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private UserRepository userRepository = new UserRepository();
     private SharedPreferences sharedPreferences;
     private String userGoogleId;
+    private String userGoogleEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +59,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        UserProfile.setmGoogleSignInClient(mGoogleSignInClient);
 
         loginButton.setOnClickListener(v -> logInUser());
         goToRegisterButton.setOnClickListener(v -> goToRegisterPage());
@@ -129,6 +129,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             userGoogleId = account.getId();
+            userGoogleEmail = account.getEmail();
             userRepository.getUserByGoogleId(userGoogleId, this);
         } catch (ApiException e) {
             Toast.makeText(getApplicationContext(),"Sign in cancel",Toast.LENGTH_LONG).show();

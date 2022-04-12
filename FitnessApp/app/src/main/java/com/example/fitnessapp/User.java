@@ -60,6 +60,11 @@ public class User {
         this.day10Done = false;
     }
 
+    @NonNull
+    public String getEmail() {
+        return email;
+    }
+
     @Override
     public String toString() {
         return "User{" +

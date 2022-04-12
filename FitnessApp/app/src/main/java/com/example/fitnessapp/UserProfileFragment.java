@@ -2,19 +2,15 @@ package com.example.fitnessapp;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
-import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,11 +24,13 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
+
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.gson.Gson;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.Executor;
 
 
 public class UserProfileFragment extends Fragment implements UserOperations  {
@@ -70,6 +68,12 @@ public class UserProfileFragment extends Fragment implements UserOperations  {
         logoutBtn.setOnClickListener(v -> {
             sharedPreferences.edit().remove("currentUserId").apply();
             sharedPreferences.edit().remove("currentUserDetails").apply();
+            GoogleSignInClient mGoogleSignInClient = UserProfile.getGoogleClient();
+            if(mGoogleSignInClient!=null){
+                mGoogleSignInClient.signOut()
+                        .addOnCompleteListener((Executor) this, task -> UserProfile.setmGoogleSignInClient(null));
+            }
+
             Intent intent = new Intent(getContext(), MainActivity.class);
             startActivity(intent);
         });
@@ -147,6 +151,9 @@ public class UserProfileFragment extends Fragment implements UserOperations  {
 
         TextView gender = getView().findViewById(R.id.gender);
         gender.setText(user.getGender());
+
+        TextView email = getView().findViewById(R.id.email);
+        email.setText(user.getEmail());
 
         showAfterPhoto();
         showBeforePhoto();

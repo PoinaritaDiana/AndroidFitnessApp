@@ -9,7 +9,8 @@ public class ResourcesWorkoutsAndMeals {
             "https://www.youtube.com/watch?v=UcX9OcJDQy4&ab_channel=Men%27sHealth",
             "https://www.youtube.com/watch?v=nOQpD8aDJeI&ab_channel=THENX",
             "https://www.youtube.com/watch?v=xngUfoWLkFw&ab_channel=BullyJuice",
-            "https://www.youtube.com/watch?v=AdSLMdQfmqw&ab_channel=Men%27sHealth","https://www.youtube.com/watch?v=OJF1veAhTdE&ab_channel=Men%27sHealth",
+            "https://www.youtube.com/watch?v=AdSLMdQfmqw&ab_channel=Men%27sHealth",
+            "https://www.youtube.com/watch?v=OJF1veAhTdE&ab_channel=Men%27sHealth",
             "https://www.youtube.com/watch?v=UcX9OcJDQy4&ab_channel=Men%27sHealth",
             "https://www.youtube.com/watch?v=nOQpD8aDJeI&ab_channel=THENX",
             "https://www.youtube.com/watch?v=xngUfoWLkFw&ab_channel=BullyJuice",
@@ -53,7 +54,8 @@ public class ResourcesWorkoutsAndMeals {
             "https://www.youtube.com/watch?v=Og12jfLMrJw&ab_channel=Bodybuilding.com",
             "https://www.youtube.com/watch?v=AulGwjIv3m8&ab_channel=Bodybuilding.com",
             "https://www.youtube.com/watch?v=e9LD7HoJONg&ab_channel=Bodybuilding.com",
-            "https://www.youtube.com/watch?v=VQhs1R1VPtM&ab_channel=Bodybuilding.com","https://www.youtube.com/watch?v=It-B8xhkZy4&ab_channel=Bodybuilding.com",
+            "https://www.youtube.com/watch?v=VQhs1R1VPtM&ab_channel=Bodybuilding.com",
+            "https://www.youtube.com/watch?v=It-B8xhkZy4&ab_channel=Bodybuilding.com",
             "https://www.youtube.com/watch?v=Un7s7VwSdV0&ab_channel=Bodybuilding.com",
             "https://www.youtube.com/watch?v=Og12jfLMrJw&ab_channel=Bodybuilding.com",
             "https://www.youtube.com/watch?v=AulGwjIv3m8&ab_channel=Bodybuilding.com");
@@ -62,7 +64,12 @@ public class ResourcesWorkoutsAndMeals {
             "https://www.youtube.com/watch?v=UcX9OcJDQy4&ab_channel=Men%27sHealth",
             "https://www.youtube.com/watch?v=nOQpD8aDJeI&ab_channel=THENX",
             "https://www.youtube.com/watch?v=xngUfoWLkFw&ab_channel=BullyJuice",
-            "https://www.youtube.com/watch?v=AdSLMdQfmqw&ab_channel=Men%27sHealth");
+            "https://www.youtube.com/watch?v=AdSLMdQfmqw&ab_channel=Men%27sHealth",
+            "https://www.youtube.com/watch?v=UcX9OcJDQy4&ab_channel=Men%27sHealth",
+            "https://www.youtube.com/watch?v=nOQpD8aDJeI&ab_channel=THENX",
+            "https://www.youtube.com/watch?v=UcX9OcJDQy4&ab_channel=Men%27sHealth",
+            "https://www.youtube.com/watch?v=nOQpD8aDJeI&ab_channel=THENX",
+            "https://www.youtube.com/watch?v=UcX9OcJDQy4&ab_channel=Men%27sHealth");
 
 
     public List<String> getLoseWeightMale() {

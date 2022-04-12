@@ -27,8 +27,6 @@ public class FormResults extends AppCompatActivity  implements UserOperations {
 
         user = UserProfile.getInstance();
 
-        saveUserDetailsToDb(user);
-
         TextView resultCalories = findViewById(R.id.calories);
 
         if(user.getGoal().equalsIgnoreCase("lose_weight")) {
@@ -44,6 +42,8 @@ public class FormResults extends AppCompatActivity  implements UserOperations {
                     String.valueOf(user.calculateGainMuscleCalories()) + " calories per day." );
         }
 
+        saveUserDetailsToDb(user);
+
         Button goToProfile = findViewById(R.id.resultsBtn);
         goToProfile.setOnClickListener(view -> {
            goToHomePage();
@@ -53,7 +53,7 @@ public class FormResults extends AppCompatActivity  implements UserOperations {
 
     private void saveUserDetailsToDb(User user){
         int userId = sharedPreferences.getInt("currentUserId", -1);
-        if(userId>0){
+        if(userId>=0){
             userRepository.updateUser(userId, user.getTypicalDay(), user.getBodyType(), user.getWeight(),
                     user.getGoalWeight(), user.getGender(), user.getHeight(), user.getAge(),
                     user.getGoal(), user.getDailyCalories(), this);
@@ -77,8 +77,25 @@ public class FormResults extends AppCompatActivity  implements UserOperations {
     }
 
     private void updateCurrentUser(){
-        String userJson = new Gson().toJson(user);
+        User currentUser = getCurrentUser();
+        currentUser.setAge(user.getAge());
+        currentUser.setBodyType(user.getBodyType());
+        currentUser.setDailyCalories(user.getDailyCalories());
+        currentUser.setGender(user.getGender());
+        currentUser.setGoalWeight(user.getGoalWeight());
+        currentUser.setHeight(user.getHeight());
+        currentUser.setTypicalDay(user.getTypicalDay());
+        currentUser.setWeight(user.getWeight());
+        currentUser.setGoal(user.getGoal());
+
+        String userJson = new Gson().toJson(currentUser);
         sharedPreferences.edit().putString("currentUserDetails", userJson).apply();
+    }
+
+    private User getCurrentUser() {
+        String userJson = sharedPreferences.getString("currentUserDetails", null);
+        User user = new Gson().fromJson(userJson, User.class);
+        return user;
     }
 
     @Override
