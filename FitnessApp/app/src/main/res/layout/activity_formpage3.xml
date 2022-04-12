@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".FormPage3"
     android:orientation="vertical"
     android:gravity="center"
@@ -62,12 +63,20 @@
             android:onClick="onRadioButtonClicked"/>
     </RadioGroup>
 
-    <Button
-        android:id="@+id/submitForm3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="SUBMIT"/>
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="315dp"
+        app:layoutDescription="@xml/activity_formpage3_xml_constraintlayout2_scene">
 
+        <Button
+            android:id="@+id/submitForm3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick3"
+            android:text="SUBMIT"
+            tools:layout_editor_absoluteX="151dp"
+            tools:layout_editor_absoluteY="55dp" />
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 </LinearLayout>
 </ScrollView>

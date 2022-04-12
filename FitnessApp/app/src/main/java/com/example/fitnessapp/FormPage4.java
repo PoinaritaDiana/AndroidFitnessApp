@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.RadioButton;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.motion.widget.MotionLayout;
 
 public class FormPage4 extends AppCompatActivity {
 
@@ -18,10 +19,23 @@ public class FormPage4 extends AppCompatActivity {
 
         Button mSaveBtn = findViewById(R.id.submitForm4);
         mSaveBtn.setEnabled(false);
-        mSaveBtn.setOnClickListener(view -> {
-            Intent intent = new Intent(FormPage4.this, FormResults.class);
-            startActivity(intent);
-        });
+//        mSaveBtn.setOnClickListener(view -> {
+//            Intent intent = new Intent(FormPage4.this, FormResults.class);
+//            startActivity(intent);
+//        });
+    }
+
+    public void onClick4(View v) {
+        ((MotionLayout)v.getParent()).transitionToEnd();
+
+        v.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(FormPage4.this, FormResults.class);
+                startActivity(intent);
+            }
+        }, 500);
+
     }
 
     public void onRadioButtonClicked(View view) {

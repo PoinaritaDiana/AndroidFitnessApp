@@ -10,6 +10,7 @@ import android.widget.RadioButton;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.motion.widget.MotionLayout;
 
 public class FormPage1 extends AppCompatActivity {
 
@@ -31,24 +32,58 @@ public class FormPage1 extends AppCompatActivity {
         EditText goalWeightEditText = findViewById(R.id.goal_weight);
 
         Button mSaveBtn = findViewById(R.id.submitForm1);
-        mSaveBtn.setOnClickListener(view -> {
-            String ageString = ageEditText.getText().toString();
-            Integer age = Integer.parseInt(ageString);
-            String heightString = heightEditText.getText().toString();
-            Float height = Float.parseFloat(heightString);
-            String weightString = weightEditText.getText().toString();
-            Float weight = Float.parseFloat(weightString);
-            String goalWeightString = goalWeightEditText.getText().toString();
-            Float goalWeight = Float.parseFloat(goalWeightString);
+//        mSaveBtn.setOnClickListener(view -> {
+//            String ageString = ageEditText.getText().toString();
+//            Integer age = Integer.parseInt(ageString);
+//            String heightString = heightEditText.getText().toString();
+//            Float height = Float.parseFloat(heightString);
+//            String weightString = weightEditText.getText().toString();
+//            Float weight = Float.parseFloat(weightString);
+//            String goalWeightString = goalWeightEditText.getText().toString();
+//            Float goalWeight = Float.parseFloat(goalWeightString);
+//
+//            user.setAge(age);
+//            user.setHeight(height);
+//            user.setWeight(weight);
+//            user.setGoalWeight(goalWeight);
+//
+//            Intent intent = new Intent(FormPage1.this, FormPage2.class);
+//            startActivity(intent);
+//        });
 
-            user.setAge(age);
-            user.setHeight(height);
-            user.setWeight(weight);
-            user.setGoalWeight(goalWeight);
+    }
 
-            Intent intent = new Intent(FormPage1.this, FormPage2.class);
-            startActivity(intent);
-        });
+    public void onClick(View v) {
+        ((MotionLayout)v.getParent()).transitionToEnd();
+
+        v.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                User user = UserProfile.getInstance();
+
+                EditText ageEditText = findViewById(R.id.age);
+                EditText heightEditText = findViewById(R.id.height);
+                EditText weightEditText = findViewById(R.id.weight);
+                EditText goalWeightEditText = findViewById(R.id.goal_weight);
+
+                String ageString = ageEditText.getText().toString();
+                Integer age = Integer.parseInt(ageString);
+                String heightString = heightEditText.getText().toString();
+                Float height = Float.parseFloat(heightString);
+                String weightString = weightEditText.getText().toString();
+                Float weight = Float.parseFloat(weightString);
+                String goalWeightString = goalWeightEditText.getText().toString();
+                Float goalWeight = Float.parseFloat(goalWeightString);
+
+                user.setAge(age);
+                user.setHeight(height);
+                user.setWeight(weight);
+                user.setGoalWeight(goalWeight);
+
+                Intent intent = new Intent(FormPage1.this, FormPage2.class);
+                startActivity(intent);
+            }
+        }, 500);
 
     }
 

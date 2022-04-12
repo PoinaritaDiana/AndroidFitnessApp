@@ -27,6 +27,6 @@
             android:layout_height="64dp"
             android:layout_marginTop="200dp"
             android:gravity="center"
-            android:text="Go to Profile" />
+            android:text="Open my 10 Days Plan" />
     </FrameLayout>
 </LinearLayout>
