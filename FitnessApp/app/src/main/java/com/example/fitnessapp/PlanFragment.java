@@ -44,6 +44,9 @@ public class PlanFragment extends Fragment {
 
         daysListView.setOnItemClickListener((parent, view1, position, id) -> {
             switch (position) {
+                case 0 :
+                    state = 0;
+                    break;
                 case 1 :
                     state = 1;
                     break;
