@@ -56,6 +56,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         passswordInput = (TextView)findViewById(R.id.sign_in_password_input);
 
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken("414339119690-b4f4lgpp2qprjrocb1e5jhccud01d09d.apps.googleusercontent.com")
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
@@ -132,6 +133,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             userGoogleEmail = account.getEmail();
             userRepository.getUserByGoogleId(userGoogleId, this);
         } catch (ApiException e) {
+            System.out.println(e);
             Toast.makeText(getApplicationContext(),"Sign in cancel",Toast.LENGTH_LONG).show();
         }
     }
